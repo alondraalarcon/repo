@@ -1,0 +1,21 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button text="" defaultHref="/" icon="arrow-back-outline"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center">{{data.name}}</ion-title>
+      <ion-icon name="cart-outline" slot="end" (click)="btnCart()" color="warning"></ion-icon>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content fullscreen>
+    <ion-card>
+      <img [src]="data.images[0].src" />
+      <ion-card-header>
+        <ion-card-title>{{data.name}}</ion-card-title>
+        <ion-card-subtitle>₱{{data.price}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content [innerHTML]="data.description"></ion-card-content>
+    </ion-card>
+  </ion-content>
+</ion-app>
