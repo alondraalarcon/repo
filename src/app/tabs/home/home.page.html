@@ -2,11 +2,6 @@
   <ion-card class="ion-no-margin" color="primary">
     <ion-grid>
       <ion-row>
-        <ion-col class="ion-text-end ion-padding-top ion-padding-end">
-          <ion-icon name="cart-outline" (click)="btnCart()" color="warning"></ion-icon>
-        </ion-col>
-      </ion-row>
-      <ion-row>
         <ion-col class="ion-text-center">
           <img src="assets/images/logo.png" style="width:80px; height:80px;"/>
           <h2 style="margin-top:-10px;">Palengke24x7</h2>
@@ -22,8 +17,8 @@
       <ion-card-subtitle>Mga Produkto</ion-card-subtitle>
     </ion-card-header>
     <ion-row class="ion-margin" style="margin-top:-10px;">
-      <ion-col size="6" size-md *ngFor="let products of products">
-        <ion-item href="#" >
+      <ion-col size="6" size-md *ngFor="let products of products"(click)="openSingleProductPage(products.id)">
+        <ion-item>
           <p>{{products.name}}</p>
         </ion-item>
         <img [src]="products.image.src" style="height:100px;width:100%;"/>
@@ -31,4 +26,3 @@
     </ion-row>
   </div>
   </ion-content>
-  

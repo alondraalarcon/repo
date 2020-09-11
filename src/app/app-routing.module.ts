@@ -9,6 +9,14 @@ const routes: Routes = [
   {
     path: 'single-product',
     loadChildren: () => import('./modal/single-product/single-product.module').then( m => m.SingleProductPageModule)
+  },
+  {
+    path: 'product-categories',
+    loadChildren: () => import('./modal/product-categories/product-categories.module').then( m => m.ProductCategoriesPageModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./pages/signup/signup.module').then( m => m.SignupPageModule)
   }
 ];
 

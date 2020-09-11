@@ -115,4 +115,40 @@ export class ProductAPIService {
     )
 
   }
+
+  getAllProductsByCategories(id){
+
+    return this.http.get(`${this.url}wp-json/wc/v3/products?consumer_key=${
+      this.consumerKey
+    }&consumer_secret=${this.consumerSecret}&category=` + id + `&hide_empty=true`)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+    )
+
+  }
+
+  getProductReviewById(id){
+
+    return this.http.get(`${this.url}wp-json/wc/v3/products/reviews?consumer_key=${
+      this.consumerKey
+    }&consumer_secret=${this.consumerSecret}&product=` + id + ``)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+    )
+
+  }
+
+  getEmailAddress(email){
+
+    return this.http.get(`${this.url}wp-json/wc/v3/customers?consumer_key=${
+      this.consumerKey
+    }&consumer_secret=${this.consumerSecret}&email=` + email + ``)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+    )
+
+  }
 }

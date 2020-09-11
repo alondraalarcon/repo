@@ -13,7 +13,7 @@ const routes: Routes = [
         children:[
           {
             path: '',
-            loadChildren: () => import('../pages/home/home.module').then( m => m.HomePageModule)
+            loadChildren: () => import('../tabs/home/home.module').then( m => m.HomePageModule)
           }
         ]
       },
@@ -22,7 +22,7 @@ const routes: Routes = [
         children:[
           {
             path: '',
-            loadChildren: () => import('../pages/products/products.module').then( m => m.ProductsPageModule)
+            loadChildren: () => import('../tabs/products/products.module').then( m => m.ProductsPageModule)
           }
         ]
       },
@@ -31,7 +31,7 @@ const routes: Routes = [
         children:[
           {
             path: '',
-            loadChildren: () => import('../pages/cart/cart.module').then( m => m.CartPageModule)
+            loadChildren: () => import('../tabs/cart/cart.module').then( m => m.CartPageModule)
           }
         ]
       },
@@ -40,7 +40,7 @@ const routes: Routes = [
         children:[
           {
             path: '',
-            loadChildren: () => import('../pages/account/account.module').then( m => m.AccountPageModule)
+            loadChildren: () => import('../tabs/account/account.module').then( m => m.AccountPageModule)
           }
         ]
       },{

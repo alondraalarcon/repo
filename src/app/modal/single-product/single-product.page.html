@@ -1,21 +1,77 @@
-<ion-app>
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-buttons slot="start">
-        <ion-back-button text="" defaultHref="/" icon="arrow-back-outline"></ion-back-button>
-      </ion-buttons>
-      <ion-title class="ion-text-center">{{data.name}}</ion-title>
-      <ion-icon name="cart-outline" slot="end" (click)="btnCart()" color="warning"></ion-icon>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content fullscreen>
-    <ion-card>
-      <img [src]="data.images[0].src" />
-      <ion-card-header>
-        <ion-card-title>{{data.name}}</ion-card-title>
-        <ion-card-subtitle>₱{{data.price}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content [innerHTML]="data.description"></ion-card-content>
-    </ion-card>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button expand="block" class="ion-float-left" (click)="back()">
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Mga Produkto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <ion-card class="ion-no-margin">
+    <ion-slides autoplay="3000">
+      <ion-slide *ngFor="let image of product.images">
+        <img [src]="image.src"/>
+      </ion-slide>
+    </ion-slides>
+    <ion-card-content>
+      <ion-card-title style="font-size:16px;"> {{product.name}}</ion-card-title>
+      <ion-label color="danger" style="font-size:10px;font-weight:900;">{{product.categories[0].name}}</ion-label>
+      <ion-card-title color="warning"><p [innerHTML]="product.price_html" style="font-size:15px;"></p></ion-card-title>
+    </ion-card-content>
+  </ion-card>
+  <br/>
+  <ion-card class="ion-no-margin" *ngIf="review.length > 0;">
+    <ion-card-content>
+      <ion-card-title style="font-size:16px;"> Reviews</ion-card-title>
+      <ion-grid>
+        <ion-row *ngFor="let review of review">
+          <ion-col col-3>
+              <b style="font-size:10px;">{{review.reviewer}}</b><br/>
+              <span *ngIf="review.rating >= 1">
+                <ion-icon style="color:#d4af3f" small name="star"></ion-icon>
+              </span>
+              <span *ngIf="review.rating >= 2">
+                <ion-icon style="color:#d4af3f" small name="star"></ion-icon>
+              </span>
+              <span *ngIf="review.rating >= 3">
+                <ion-icon style="color:#d4af3f" small name="star"></ion-icon>
+              </span>
+              <span *ngIf="review.rating >= 4">
+                <ion-icon style="color:#d4af3f" small name="star"></ion-icon>
+              </span>
+              <span *ngIf="review.rating >= 5">
+                <ion-icon style="color:#d4af3f" small name="star"></ion-icon>
+              </span>
+          </ion-col>
+          <ion-col col-9>
+            <b style="font-size:10px;" [innerHTML]="review.review"></b>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
   </ion-content>
-</ion-app>
+  <ion-footer class="ion-no-border">
+    <ion-toolbar>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" (click)="addToCart(product)">
+              <ion-icon slot="start" name="basket"></ion-icon>
+                Add to Cart
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="block" color="warning">
+              <ion-icon slot="start" name="basket"></ion-icon>
+                Buy Now
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>
+  

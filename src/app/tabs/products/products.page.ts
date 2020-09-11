@@ -18,14 +18,20 @@ export class ProductsPage implements OnInit {
   driedfish:any;
   other:any;
   items: any;
-  singleProductDetails: any;
+  singleProductDetails:any;
+  productReview: any[]= [];
 
   constructor(private productAPIService: ProductAPIService, private loadingCtrl: LoadingController, private modalCtrl: ModalController) {
-    this.getAllProducts();
    }
 
   ngOnInit() {
   }
+
+  ionViewWillEnter(){
+
+    this.getAllProducts();
+  }
+
 
   async getAllProducts(){
     const loading = await this.loadingCtrl.create({
@@ -71,33 +77,42 @@ export class ProductsPage implements OnInit {
 
   }
 
+  
+
   async openSingleProductPage(id){
+    // console.log(id);
     const loading = await this.loadingCtrl.create({
       message: 'Please wait...',
     });
 
     await loading.present();
+
+    this.productAPIService.getProductReviewById
+    (id).subscribe(async (response) => {
+      this.items = JSON.stringify(response);
+      this.productReview = JSON.parse(this.items);
+
+    });
+
     this.productAPIService.getSingleProduct
     (id).subscribe(async (response) => {
       this.items = JSON.stringify(response);
       this.singleProductDetails = JSON.parse(this.items);
+      // console.log(this.singleProductDetails);
       this.loadingCtrl.dismiss();
     
       const modal = await this.modalCtrl.create({
         component: SingleProductPage,
         componentProps: {
-          'data': this.singleProductDetails,
+          'product': this.singleProductDetails,
+          'review': this.productReview,
         }
       });
       return modal.present();
     });
 
     
-  
   }
 
-
-
-    
 
 }
