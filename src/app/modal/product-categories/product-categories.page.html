@@ -2,9 +2,9 @@
   <ion-content [fullscreen]="true" color="light">
     <ion-header>
       <ion-toolbar color="primary">
-        <ion-button expand="block" class="ion-float-left" (click)="back()">
+        <ion-buttons slot="start" (click)="back()">
           <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
-        </ion-button>
+        </ion-buttons>
         <ion-title class="ion-text-center">{{data[0].categories[0].name}}</ion-title>
       </ion-toolbar>
       <div>

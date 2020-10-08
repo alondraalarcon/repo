@@ -3,16 +3,16 @@ import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http'
 import { retry, catchError } from 'rxjs/operators';
 import {  throwError } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
-
-
-export class SignUpService {
+export class PaymentGatewaysService {
 
   url = 'https://www.karinderya24x7.com/';
   consumerKey = 'ck_224659887db29e0a8f174760705289589aa6ca29';
   consumerSecret = 'cs_17fbd677bb7377b60ccdc0fe03d32401abfa8866';
+  paymentGateway = ["paypal","rits_paymaya"];
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -27,17 +27,17 @@ export class SignUpService {
   };
   
   constructor(private http: HttpClient) { }
-  getEmailAddress(email){
 
-    return this.http.get(`${this.url}wp-json/wc/v3/customers?consumer_key=${
+
+  getPaymentGateways(){
+
+    return this.http.get(`${this.url}wp-json/wc/v3/payment_gateways?consumer_key=${
       this.consumerKey
-    }&consumer_secret=${this.consumerSecret}&email=` + email + ``)
+    }&consumer_secret=${this.consumerSecret}`)
       .pipe(
         retry(2),
         catchError(this.handleError)
     )
 
   }
-
-
 }

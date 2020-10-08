@@ -33,6 +33,18 @@
     <ion-grid>
       <ion-row>
         <ion-col col-2>
+          Sub Total
+        </ion-col>
+        <ion-col col-4>
+        </ion-col>
+        <ion-col col-3>
+        </ion-col>
+        <ion-col col-3 style="text-align:right">
+          <b>{{total}}</b>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-2>
           Total
         </ion-col>
         <ion-col col-4>
@@ -55,9 +67,9 @@
           </ion-button>
         </ion-col>
         <ion-col>
-          <ion-button expand="block" color="warning">
+          <ion-button expand="block" color="warning" (click)="checkout()">
             <ion-icon slot="start" name="shield-checkmark-outline"></ion-icon>
-              Checkout
+              Proceed to Checkout
           </ion-button>
         </ion-col>
       </ion-row>

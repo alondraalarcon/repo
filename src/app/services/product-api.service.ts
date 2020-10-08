@@ -9,9 +9,9 @@ import {  throwError } from 'rxjs';
 
 export class ProductAPIService {
 
-  url = 'https://palengke24x7.com/';
-  consumerKey = 'ck_59fd55fc5cee69474040447324b5f90b54071cfb';
-  consumerSecret = 'cs_1d44d814beef787524f16b9ab6753baae0c5163b';
+  url = 'https://www.karinderya24x7.com/';
+  consumerKey = 'ck_224659887db29e0a8f174760705289589aa6ca29';
+  consumerSecret = 'cs_17fbd677bb7377b60ccdc0fe03d32401abfa8866';
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

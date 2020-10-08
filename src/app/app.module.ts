@@ -14,12 +14,13 @@ import { SignUpService } from '../app/services/signup.service';
 import { SingleProductPageModule } from './modal/single-product/single-product.module';
 import { ProductCategoriesPageModule } from './modal/product-categories/product-categories.module';
 import { SignupPageModule} from './pages/signup/signup.module';
+import { CheckoutPageModule} from './pages/checkout/checkout.module';
 import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, SingleProductPageModule, ProductCategoriesPageModule,IonicStorageModule.forRoot(), SignupPageModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, SingleProductPageModule, ProductCategoriesPageModule,IonicStorageModule.forRoot(), SignupPageModule, CheckoutPageModule],
   providers: [
     StatusBar,
     SplashScreen,

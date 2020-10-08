@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { NavController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import { CheckoutPage } from '../../pages/checkout/checkout.page';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +15,7 @@ export class CartPage implements OnInit {
   total: any;
   showEmptyCartMessage: boolean = false;
 
-  constructor(public storage: Storage, private navCtrl: NavController) { 
+  constructor(public storage: Storage, private navCtrl: NavController,private modalCtrl: ModalController) { 
     
     this.total = 0.0;
 
@@ -58,7 +60,20 @@ export class CartPage implements OnInit {
     this.navCtrl.back();
   }
 
+
+
   ngOnInit() {
+  }
+
+  async checkout(){
+    const modal = await this.modalCtrl.create({
+      component: CheckoutPage,
+      componentProps: {
+        'data': "",
+      }
+    });
+      return modal.present();
+    
   }
 
 }
