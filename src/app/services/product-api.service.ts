@@ -10,8 +10,8 @@ import {  throwError } from 'rxjs';
 export class ProductAPIService {
 
   url = 'https://www.karinderya24x7.com/';
-  consumerKey = 'ck_224659887db29e0a8f174760705289589aa6ca29';
-  consumerSecret = 'cs_17fbd677bb7377b60ccdc0fe03d32401abfa8866';
+  consumerKey = 'ck_77300cf86ff3c9aa0c3f1d5729eb1c9a9af8d639';   
+  consumerSecret = 'cs_2eb6e739b6c640d4495d7267a39728f8209086e0';
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -44,55 +44,65 @@ export class ProductAPIService {
     )
   }
 
-  getKarneProducts(){
+  getUlamProducts(){
     return this.http.get(`${this.url}wp-json/wc/v3/products?consumer_key=${
       this.consumerKey
-    }&consumer_secret=${this.consumerSecret}&category=75&hide_empty=true`)
+        }&consumer_secret=${this.consumerSecret}&category=133&hide_empty=true`)
       .pipe(
         retry(2),
         catchError(this.handleError)
     )
   }
 
-  getIsdaProducts(){
+  getMeryendaProducts(){
     return this.http.get(`${this.url}wp-json/wc/v3/products?consumer_key=${
       this.consumerKey
-    }&consumer_secret=${this.consumerSecret}&category=76&hide_empty=true`)
+    }&consumer_secret=${this.consumerSecret}&category=134&hide_empty=true`)
       .pipe(
         retry(2),
         catchError(this.handleError)
     )
   }
 
-  getGulayProducts(){
+  getDrinksProducts(){
     return this.http.get(`${this.url}wp-json/wc/v3/products?consumer_key=${
       this.consumerKey
-    }&consumer_secret=${this.consumerSecret}&category=73&hide_empty=true`)
+    }&consumer_secret=${this.consumerSecret}&category=135&hide_empty=true`)
       .pipe(
         retry(2),
         catchError(this.handleError)
     )
   }
 
-  getPrutasProducts(){
+  getBreakfastProducts(){
     return this.http.get(`${this.url}wp-json/wc/v3/products?consumer_key=${
       this.consumerKey
-    }&consumer_secret=${this.consumerSecret}&category=74&hide_empty=true`)
+    }&consumer_secret=${this.consumerSecret}&category=136&hide_empty=true`)
       .pipe(
         retry(2),
         catchError(this.handleError)
     )
   }
 
-  getDriedFishProducts(){
+  getPanghimagasProducts(){
     return this.http.get(`${this.url}wp-json/wc/v3/products?consumer_key=${
       this.consumerKey
-    }&consumer_secret=${this.consumerSecret}&category=100&hide_empty=true`)
+    }&consumer_secret=${this.consumerSecret}&category=137&hide_empty=true`)
       .pipe(
         retry(2),
         catchError(this.handleError)
     )
   }
+
+   getGulayProducts() {
+        return this.http.get(`${this.url}wp-json/wc/v3/products?consumer_key=${
+            this.consumerKey
+            }&consumer_secret=${this.consumerSecret}&category=135&hide_empty=true`)
+            .pipe(
+                retry(2),
+                catchError(this.handleError)
+            )
+    }
 
   getOtherProducts(){
     return this.http.get(`${this.url}wp-json/wc/v3/products?consumer_key=${

@@ -10,12 +10,13 @@ import { SingleProductPage } from '../../modal/single-product/single-product.pag
 })
 export class ProductsPage implements OnInit {
 
-  palengke: string = "karne";
-  karne: any;
-  isda: any;
-  prutas: any;
+  karinderya: string = "Ulam";
+  ulam: any;
+  meryenda: any;
+  drinks: any;
+  breakfast: any;
+  panghimagas:any;
   gulay: any;
-  driedfish:any;
   other:any;
   items: any;
   singleProductDetails:any;
@@ -40,21 +41,32 @@ export class ProductsPage implements OnInit {
 
     await loading.present();
 
-    this.productAPIService.getKarneProducts
+    this.productAPIService.getUlamProducts
     ().subscribe((response) => {
-      this.karne = response;
+      this.ulam = response;
+    
+    });   
+
+    this.productAPIService.getMeryendaProducts
+    ().subscribe((response) => {
+      this.meryenda = response;
     
     });
 
-    this.productAPIService.getIsdaProducts
+    this.productAPIService.getDrinksProducts
     ().subscribe((response) => {
-      this.isda = response;
+      this.drinks = response;
     });
 
     
-    this.productAPIService.getPrutasProducts
+    this.productAPIService.getBreakfastProducts
     ().subscribe((response) => {
-      this.prutas = response;
+      this.breakfast = response;
+    });
+
+    this.productAPIService.getPanghimagasProducts
+    ().subscribe((response) => {
+      this.panghimagas = response;
     });
 
     this.productAPIService.getGulayProducts
@@ -63,10 +75,7 @@ export class ProductsPage implements OnInit {
      
     });
 
-    this.productAPIService.getDriedFishProducts
-    ().subscribe((response) => {
-      this.driedfish = response;
-    });
+    
 
     this.productAPIService.getOtherProducts
     ().subscribe((response) => {

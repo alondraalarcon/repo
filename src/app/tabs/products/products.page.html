@@ -11,24 +11,24 @@
   <ion-toolbar>
     <ion-header>
     <ion-toolbar no-border-top>
-      <ion-segment scrollable [(ngModel)]="palengke">
-        <ion-segment-button value="karne">
-          Karne
+      <ion-segment scrollable [(ngModel)]="karinderya">
+        <ion-segment-button value="Ulam">
+          Ulam
         </ion-segment-button>
-        <ion-segment-button value="isda">
-          Isda
+        <ion-segment-button value="Meryenda">
+          Meryenda
         </ion-segment-button>
-        <ion-segment-button value="gulay">
+        <ion-segment-button value="Drinks">
+          Drinks
+        </ion-segment-button>
+        <ion-segment-button value="Breakfast">
+          Breakfast
+        </ion-segment-button>
+        <ion-segment-button value="Panghimagas">
+          Panghimagas
+        </ion-segment-button>
+        <ion-segment-button value="Gulay">
           Gulay
-        </ion-segment-button>
-        <ion-segment-button value="prutas">
-          Prutas
-        </ion-segment-button>
-        <ion-segment-button value="driedfish">
-          Dried Fish
-        </ion-segment-button>
-        <ion-segment-button value="ibapa">
-          Iba pa..
         </ion-segment-button>
 
       </ion-segment>
@@ -36,43 +36,91 @@
   </ion-header>
     
   </ion-toolbar>
-  <div [ngSwitch]="palengke">
-    <div *ngSwitchCase="'karne'">
+  <div [ngSwitch]="karinderya">
+    <div *ngSwitchCase="'Ulam'">
       <div>
         <ion-card-header>
-          <ion-card-subtitle>Sariwang Karne</ion-card-subtitle>
+          <ion-card-subtitle>Manok, Baboy, Baka at iba pa..</ion-card-subtitle>
         </ion-card-header>
         <ion-row class="ion-margin" style="margin-top:-10px;">
-          <ion-col size="4" size-md *ngFor="let karne of karne">
-            <img [src]="karne.images[0].src" style="height:100px;width:100%;" (click)="openSingleProductPage(karne.id)"/>
+          <ion-col size="4" size-md *ngFor="let ulam of ulam">
+            <img [src]="ulam.images[0].src" style="height:100px;width:100%;" (click)="openSingleProductPage(ulam.id)"/>
             <ion-list lines="none" style="margin-top:-10px;">
-              <ion-item><ion-label style="font-size:12px;">{{karne.name}}</ion-label></ion-item>
-              <ion-item style="margin-top:-15px;"><ion-label class="price-label">₱{{karne.price}}</ion-label></ion-item>
+              <ion-item><ion-label style="font-size:12px;">{{ulam.name}}</ion-label></ion-item>
+              <ion-item style="margin-top:-15px;"><ion-label class="price-label">₱{{ulam.price}}</ion-label></ion-item>
             </ion-list>
           </ion-col>
         </ion-row>
       </div>
     </div>
-    <div *ngSwitchCase="'isda'">
+    <div *ngSwitchCase="'Meryenda'">
       <div>
         <ion-card-header>
-          <ion-card-subtitle>Sariwang Isda</ion-card-subtitle>
+          <ion-card-subtitle>Puto, Banana Cue, Kamote Cue..</ion-card-subtitle>
         </ion-card-header>
         <ion-row class="ion-margin" style="margin-top:-10px;">
-          <ion-col size="4" size-md *ngFor="let isda of isda" (click)="openSingleProductPage(isda.id)">
-            <img [src]="isda.images[0].src" style="height:100px;width:100%;"/>
+          <ion-col size="4" size-md *ngFor="let meryenda of meryenda" (click)="openSingleProductPage(meryenda.id)">
+            <img [src]="meryenda.images[0].src" style="height:100px;width:100%;"/>
             <ion-list lines="none" style="margin-top:-10px;">
-              <ion-item><ion-label style="font-size:12px;">{{isda.name}}</ion-label></ion-item>
-              <ion-item style="margin-top:-15px;"><ion-label class="price-label">₱{{isda.price}}</ion-label></ion-item>
+              <ion-item><ion-label style="font-size:12px;">{{meryenda.name}}</ion-label></ion-item>
+              <ion-item style="margin-top:-15px;"><ion-label class="price-label">₱{{meryenda.price}}</ion-label></ion-item>
             </ion-list>
           </ion-col>
         </ion-row>
       </div>
     </div>
-    <div *ngSwitchCase="'gulay'">
+    <div *ngSwitchCase="'Drinks'">
       <div>
         <ion-card-header>
-          <ion-card-subtitle>Sariwang Gulay</ion-card-subtitle>
+          <ion-card-subtitle>Fruit Juice, Milk Tea, Shakes..</ion-card-subtitle>
+        </ion-card-header>
+        <ion-row class="ion-margin" style="margin-top:-10px;">
+          <ion-col size="4" size-md *ngFor="let drinks of drinks" (click)="openSingleProductPage(drinks.id)">
+            <img [src]="drinks.images[0].src" style="height:100px;width:100%;"/>
+            <ion-list lines="none" style="margin-top:-10px;">
+              <ion-item><ion-label style="font-size:12px;">{{drinks.name}}</ion-label></ion-item>
+              <ion-item style="margin-top:-15px;"><ion-label class="price-label">₱{{drinks.price}}</ion-label></ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+    <div *ngSwitchCase="'Breakfast'">
+      <div>
+        <ion-card-header>
+          <ion-card-subtitle>Silog at Tinapay</ion-card-subtitle>
+        </ion-card-header>
+        <ion-row class="ion-margin" style="margin-top:-10px;">
+          <ion-col size="4" size-md *ngFor="let breakfast of breakfast" (click)="openSingleProductPage(breakfast.id)">
+            <img [src]="breakfast.images[0].src" style="height:100px;width:100%;"/>
+            <ion-list lines="none" style="margin-top:-10px;">
+              <ion-item><ion-label style="font-size:12px;">{{breakfast.name}}</ion-label></ion-item>
+              <ion-item style="margin-top:-15px;"><ion-label class="price-label">₱{{breakfast.price}}</ion-label></ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+    <div *ngSwitchCase="'Panghimagas'">
+      <div>
+        <ion-card-header>
+          <ion-card-subtitle>Biko, Ube at iba pa..</ion-card-subtitle>
+        </ion-card-header>
+        <ion-row class="ion-margin" style="margin-top:-10px;">
+          <ion-col size="4" size-md *ngFor="let panghimagas of panghimagas" (click)="openSingleProductPage(panghimagas.id)">
+            <img [src]="panghimagas.images[0].src" style="height:100px;width:100%;"/>
+            <ion-list lines="none" style="margin-top:-10px;">
+              <ion-item><ion-label style="font-size:12px;">{{panghimagas.name}}</ion-label></ion-item>
+              <ion-item style="margin-top:-15px;"><ion-label class="price-label">₱{{panghimagas.price}}</ion-label></ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+    <div *ngSwitchCase="'Gulay'">
+      <div>
+        <ion-card-header>
+          <ion-card-subtitle>Chopsuey at mga ginataan sa gulay</ion-card-subtitle>
         </ion-card-header>
         <ion-row class="ion-margin" style="margin-top:-10px;">
           <ion-col size="4" size-md *ngFor="let gulay of gulay" (click)="openSingleProductPage(gulay.id)">
@@ -80,54 +128,6 @@
             <ion-list lines="none" style="margin-top:-10px;">
               <ion-item><ion-label style="font-size:12px;">{{gulay.name}}</ion-label></ion-item>
               <ion-item style="margin-top:-15px;"><ion-label class="price-label">₱{{gulay.price}}</ion-label></ion-item>
-            </ion-list>
-          </ion-col>
-        </ion-row>
-      </div>
-    </div>
-    <div *ngSwitchCase="'prutas'">
-      <div>
-        <ion-card-header>
-          <ion-card-subtitle>Sariwang Prutas</ion-card-subtitle>
-        </ion-card-header>
-        <ion-row class="ion-margin" style="margin-top:-10px;">
-          <ion-col size="4" size-md *ngFor="let prutas of prutas" (click)="openSingleProductPage(prutas.id)">
-            <img [src]="prutas.images[0].src" style="height:100px;width:100%;"/>
-            <ion-list lines="none" style="margin-top:-10px;">
-              <ion-item><ion-label style="font-size:12px;">{{prutas.name}}</ion-label></ion-item>
-              <ion-item style="margin-top:-15px;"><ion-label class="price-label">₱{{prutas.price}}</ion-label></ion-item>
-            </ion-list>
-          </ion-col>
-        </ion-row>
-      </div>
-    </div>
-    <div *ngSwitchCase="'driedfish'">
-      <div>
-        <ion-card-header>
-          <ion-card-subtitle>Dried Fish</ion-card-subtitle>
-        </ion-card-header>
-        <ion-row class="ion-margin" style="margin-top:-10px;">
-          <ion-col size="4" size-md *ngFor="let driedfish of driedfish" (click)="openSingleProductPage(driedfish.id)">
-            <img [src]="driedfish.images[0].src" style="height:100px;width:100%;"/>
-            <ion-list lines="none" style="margin-top:-10px;">
-              <ion-item><ion-label style="font-size:12px;" >{{driedfish.name}}</ion-label></ion-item>
-              <ion-item style="margin-top:-15px;"><ion-label class="price-label">₱{{driedfish.price}}</ion-label></ion-item>
-            </ion-list>
-          </ion-col>
-        </ion-row>
-      </div>
-    </div>
-    <div *ngSwitchCase="'ibapa'">
-      <div>
-        <ion-card-header>
-          <ion-card-subtitle>Itlog, Bigas at Iba Pa..</ion-card-subtitle>
-        </ion-card-header>
-        <ion-row class="ion-margin" style="margin-top:-10px;">
-          <ion-col size="4" size-md *ngFor="let other of other" (click)="openSingleProductPage(other.id)">
-            <img [src]="other.images[0].src" style="height:100px;width:100%;"/>
-            <ion-list lines="none" style="margin-top:-10px;">
-              <ion-item><ion-label style="font-size:12px;">{{other.name}}</ion-label></ion-item>
-              <ion-item style="margin-top:-15px;"><ion-label class="price-label">₱{{other.price}}</ion-label></ion-item>
             </ion-list>
           </ion-col>
         </ion-row>

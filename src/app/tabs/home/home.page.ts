@@ -35,6 +35,7 @@ export class HomePage implements OnInit {
 
     this.productAPIService.getProductCategories().subscribe((response) => {
       this.products = response;
+      // console.log(response);
       this.loadingCtrl.dismiss();
     });
   }
@@ -47,6 +48,7 @@ export class HomePage implements OnInit {
     await loading.present();
     this.productAPIService.getAllProductsByCategories
     (id).subscribe(async (response) => {
+      console.log(response);
       this.items = JSON.stringify(response);
       this.singleProductDetails = JSON.parse(this.items);
       this.loadingCtrl.dismiss();
